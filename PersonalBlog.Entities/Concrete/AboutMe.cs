@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Entities.Concrete
 {
-    public  class AboutMehttps : EntityBase , IEntity
+    public  class AboutMe : EntityBase , IEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

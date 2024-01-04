@@ -11,6 +11,6 @@ namespace PersonalBlog.Entities.Concrete
     {
         public string Account { get; set; }
         public string AccountFA { get; set; }
-        public string AccountURL { get; set; }
+        public string AccountUrl { get; set; }
     }
 }

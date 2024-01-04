@@ -1,6 +1,7 @@
 ﻿using PersonalBlog.Shared.Entities.Abstract;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace PersonalBlog.Entities.Concrete
 {
     public  class AboutMe : EntityBase , IEntity
     {
+        //[Required]// zorunlu olduğunu belirtir. SOLID uygun olmadığı için kullanmıyoruz Bunlara data anitaion da denir.
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ImagePath { get; set; }

@@ -12,7 +12,7 @@ namespace PersonalBlog.Entities.Concrete
         public string Title { get; set; }
         public string Keywords { get; set; }
         public string Desciption { get; set; }
-        public string LongText { get; set; }
+        public string LogoText { get; set; }
         public string LogoFA { get; set; }
 
     }

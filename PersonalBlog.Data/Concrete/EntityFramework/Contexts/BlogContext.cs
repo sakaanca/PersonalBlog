@@ -33,6 +33,21 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new SummaryMap());
+            modelBuilder.ApplyConfiguration(new InterestedsMap());
+            modelBuilder.ApplyConfiguration(new SocialMediaAccountsMap());
+            modelBuilder.ApplyConfiguration(new HomePageSlidersMap());
+            modelBuilder.ApplyConfiguration(new SkillsMap());
+            modelBuilder.ApplyConfiguration(new ExperiencesMap());
+            modelBuilder.ApplyConfiguration(new MessagesMap());
+            modelBuilder.ApplyConfiguration(new SiteIdentityMap());
+            modelBuilder.ApplyConfiguration(new AboutMeMap());
+            modelBuilder.ApplyConfiguration(new AdminMap());
+            modelBuilder.ApplyConfiguration(new EducationMap());
+            modelBuilder.ApplyConfiguration(new ContactInfoMap());
+            modelBuilder.ApplyConfiguration(new ArticlesMap());
+            modelBuilder.ApplyConfiguration(new CategoriesMap());
+            modelBuilder.ApplyConfiguration(new CommentsMap());
+
         }
 
     }

@@ -25,11 +25,11 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(x => x.Title).HasMaxLength(50);
             builder.Property(x => x.School).IsRequired();
             builder.Property(x => x.School).HasMaxLength(100);
-            builder.Property(x=>x.Duration).IsRequired();
-            builder.Property(x => x.Duration).HasMaxLength(30);
-            builder.Property(x=>x.Avarge).IsRequired    ();
-            builder.Property(x => x.Avarge).HasMaxLength(15);
-            builder.Property(x=>x.Description).IsRequired();
+            builder.Property(x => x.Duration).IsRequired();
+            builder.Property(x => x.Duration).HasMaxLength(255);
+            builder.Property(x => x.Avarge).IsRequired();
+            builder.Property(x => x.Avarge).HasMaxLength(55);
+            builder.Property(x => x.Description).IsRequired();
             builder.Property(x => x.Description).HasMaxLength(200);
             builder.ToTable("Education");
             builder.HasData(new Education
@@ -41,11 +41,11 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
                 ModifiedTime = DateTime.Now,
                 IsActive = false,
                 IsDelete = false,
-                Title="Lisans Derecesi",
-                School="İstanbul Teknik Üniversitesi",
-                Duration="2020 yılı Harita Mühendislği bölümünden mezun ",
-                Avarge="2.65/4",
-                Description="Doktore yapmayı hedefliyorum ."
+                Title = "Lisans Derecesi",
+                School = "İstanbul Teknik Üniversitesi",
+                Duration = "2020-Harita Mühendislği-Mezun",
+                Avarge = "2.65/4",
+                Description = "Doktora yapmayı hedefliyorum ."
 
             });
 

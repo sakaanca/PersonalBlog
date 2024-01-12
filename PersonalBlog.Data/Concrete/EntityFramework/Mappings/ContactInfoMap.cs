@@ -22,7 +22,7 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(x => x.IsActive).IsRequired();
             builder.Property(x => x.IsDelete).IsRequired();
             builder.Property(x => x.PhoneNumber).IsRequired();
-            builder.Property(x => x.PhoneNumber).HasMaxLength(15);
+            builder.Property(x => x.PhoneNumber).HasMaxLength(20);
             builder.Property(x => x.EMail).IsRequired();
             builder.Property(x => x.EMail).HasMaxLength(100);
             builder.Property(x => x.ShortAdress).IsRequired();

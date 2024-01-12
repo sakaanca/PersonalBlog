@@ -32,7 +32,7 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(x => x.LogoFA).HasMaxLength(150);
             builder.Property(x=>x.LogoText).IsRequired();
             builder.Property(x => x.LogoText).HasMaxLength(20);
-            builder.Property("SiteIdentity");
+            builder.ToTable("SiteIdentity");
             builder.HasData(new SiteIdentity
             {
                 Id = 1,

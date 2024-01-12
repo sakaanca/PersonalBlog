@@ -27,6 +27,7 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(x=>x.CategoryFA).IsRequired();
             builder.Property(x => x.CategoryFA).HasMaxLength(150);
             builder.Property(x => x.Description).HasMaxLength(200);
+            builder.ToTable("Categories");
         }
     }
 }

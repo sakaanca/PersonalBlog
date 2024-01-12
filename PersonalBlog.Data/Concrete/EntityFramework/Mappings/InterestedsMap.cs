@@ -40,7 +40,7 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
             },
             new Interesteds
             {
-                Id = 1,
+                Id = 2,
                 CreatedTime = DateTime.Now,
                 ModifiedTime = DateTime.Now,
                 CreatedByName = "InitialCreated",
@@ -52,7 +52,7 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
             },
             new Interesteds
             {
-                Id = 1,
+                Id = 3,
                 CreatedTime = DateTime.Now,
                 ModifiedTime = DateTime.Now,
                 CreatedByName = "InitialCreated",

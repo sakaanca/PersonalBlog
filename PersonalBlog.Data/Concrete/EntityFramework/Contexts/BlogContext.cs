@@ -28,7 +28,7 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Contexts
         public DbSet<Comments> Comments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Server=(localdb)\MSSQLLocalDB;Database=PersonalBlog;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(connectionString: @"Server=(localdb)\MSSQLLocalDB;Database=PersonalBlog;Trusted_Connection=true;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -42,11 +42,11 @@ namespace PersonalBlog.Data.Concrete.EntityFramework.Mappings
                 ModifiedTime = DateTime.Now,
                 IsActive = false,
                 IsDelete = false,
-                FirstName = "Hasan",
-                LastName = "Erdal",
+                FirstName = "Kaan",
+                LastName = "Sarıca",
                 EMail = "deneme@gmail.com",
                 Subject = "deneme",
-                Text = "Dün Gece Yar Hanesinde\r\n                 Yastığım Bir Taş İdi\r\n                 Altım Çamur Üstüm Yağmur\r\n                 Gine Gönlüm Hoş İdi\r\n                 Ben Yandım Seni Bilmem\r\n                 Dağ Ne Kadar Yüce Olsa\r\n                 Bir Kenarı Yol Olur\r\n                 Buna Bayram Günü Derler\r\n                 Dostla Düşman Bir Olur\r\n                 Ben Yandım Seni Bilmem\r\n                 Sen Bugün Nadan İle Gezdin\r\n                 Merak Oldu Bana Sen Bugün Nadan İle Gezdin\r\n                 Merak Oldu Bana Çeşmi Mestimden Bile Süzdüm\r\n                 Merak Oldu Bana\r\n                 Ben Yandım Seni Bilmem"
+                Text = "Tanıştığıma memnun oldum ..."
             });
         }
     }

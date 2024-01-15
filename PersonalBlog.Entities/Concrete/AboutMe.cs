@@ -19,5 +19,6 @@ namespace PersonalBlog.Entities.Concrete
         public DateTime BirthDate  { get; set; }
         public string MyCVPath { get; set; }
 
+    
     }
 }

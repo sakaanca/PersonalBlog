@@ -15,5 +15,12 @@ namespace PersonalBlog.Entities.Dtos.InterestedDtos
         [DisplayName("İlgi Alanı")]
         [MaxLength(300, ErrorMessage = "{0} en fazla 300 karakter olmalıdr!")]
         public string Text { get; set; }
+
+
+
+        //// Diğer özellikleri ekleyin
+        public DateTime CreatedTime { get; set; }
+
+
     }
 }

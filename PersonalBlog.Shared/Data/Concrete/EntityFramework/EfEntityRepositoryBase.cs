@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace PersonalBlog.Shared.Data.Concrete.EntityFramework
 {
@@ -35,9 +36,11 @@ namespace PersonalBlog.Shared.Data.Concrete.EntityFramework
             return await _context.Set<TEntity>().CountAsync(predicate);
         }
 
-        public async Task DeleteAsync(TEntity entity)
+        public async Task<TEntity> DeleteAsync(TEntity entity)
         {
-            await Task.Run(() => { _context.Set<TEntity>().Remove(entity); });
+            _context.Set<TEntity>().Remove(entity);
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
         public async Task<IList<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null, params Expression<Func<TEntity, object>>[] includeProperties)
@@ -78,5 +81,7 @@ namespace PersonalBlog.Shared.Data.Concrete.EntityFramework
             await Task.Run(() => { _context.Set<TEntity>().Update(entity); });
             return entity;
         }
+      
+
     }
 }

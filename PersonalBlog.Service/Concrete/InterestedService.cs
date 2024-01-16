@@ -24,7 +24,14 @@ namespace PersonalBlog.Service.Concrete
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<IDataResult<InterestedsListDto>> Add(InterestedAddDto interestedAddDto)
+
+
+
+
+
+
+
+        public async Task<IDataResult<InterestedDto>> Add(InterestedAddDto interestedAddDto)
         {
             if (interestedAddDto != null)
             {
@@ -33,14 +40,18 @@ namespace PersonalBlog.Service.Concrete
                 await _unitOfWork.Interesteds.AddAsync(interested);
                 await _unitOfWork.SaveAsync();
 
-                var interestedDto = _mapper.Map<InterestedsListDto>(interested);
+                var interestedDto = _mapper.Map<InterestedDto>(interested);
 
-                return new DataResult<InterestedsListDto>(ResultStatus.Success, interestedDto);
+                return new DataResult<InterestedDto>(ResultStatus.Success, interestedDto);
             }
 
             // Eğer interestedAddDto null ise, bir hata durumuyla ilgili bilgi döndürülmeli.
-            return new DataResult<InterestedsListDto>(ResultStatus.Error, "Hata, Kayıt yapılamadı !", null);
+            return new DataResult<InterestedDto>(ResultStatus.Error, "Hata, Kayıt yapılamadı !", null);
         }
+
+
+
+
 
 
         
@@ -59,6 +70,13 @@ namespace PersonalBlog.Service.Concrete
             return new Result(ResultStatus.Error, "Kayıt Bulunamadı !");
         }
 
+
+
+
+
+
+
+
         public async Task<IDataResult<InterestedDto>> Get(int id)
         {
             var interested = await _unitOfWork.Interesteds.GetAsync(x => x.Id == id);
@@ -69,29 +87,97 @@ namespace PersonalBlog.Service.Concrete
             return new DataResult<InterestedDto>(ResultStatus.Error, "Hata, Kayıt bulunamadı !", null);
         }
 
-        public Task<IDataResult<InterestedsListDto>> GetAll()
+
+
+
+
+
+
+
+        public async Task<IDataResult<InterestedsListDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var interested= await _unitOfWork.Interesteds.GetAllAsync();
+            if (interested != null)
+
+            {
+                return new DataResult<InterestedsListDto>(ResultStatus.Success, new InterestedsListDto { Interesteds = interested });
+
+            }
+            return new DataResult<InterestedsListDto>(ResultStatus.Error, "Hata , Kayıtlar bulunamadı !", null);
         }
 
-        public Task<IDataResult<InterestedsListDto>> GetAllByNonDelete()
+
+
+
+
+
+
+
+        public async Task<IDataResult<InterestedsListDto>> GetAllByNonDelete()
         {
-            throw new NotImplementedException();
+            var interested = await _unitOfWork.Interesteds.GetAllAsync(x => x.IsDelete == false);
+            if (interested.Count > 0)
+            {
+                return new DataResult<InterestedsListDto>(ResultStatus.Success, new InterestedsListDto { Interesteds = interested });
+
+            }
+            return new DataResult<InterestedsListDto>(ResultStatus.Error, "Hata , Kayıtlar bulunamadı !", null);
         }
 
-        public Task<IDataResult<InterestedsListDto>> GetAllByNonDeleteAndActive()
+
+
+
+
+
+
+        public async Task<IDataResult<InterestedsListDto>> GetAllByNonDeleteAndActive()
         {
-            throw new NotImplementedException();
+
+            var interested = await _unitOfWork.Interesteds.GetAllAsync(x => x.IsDelete == false && x.IsActive == true);
+            if (interested.Count > 0)
+            {
+                return new DataResult<InterestedsListDto>(ResultStatus.Success, new InterestedsListDto { Interesteds = interested });
+
+            }
+            return new DataResult<InterestedsListDto>(ResultStatus.Error, "Hata , Kayıtlar bulunamadı !", null);
         }
 
-        public Task<IResult> HardDelete(int id)
+
+
+
+
+
+
+        public async Task<IResult> HardDelete(int id)
         {
-            throw new NotImplementedException();
+            var interested = await _unitOfWork.Interesteds.GetAsync(x => x.Id == id);
+            if (interested != null)
+            {
+                await _unitOfWork.Interesteds.DeleteAsync(interested);
+                await _unitOfWork.SaveAsync();// sava ile veri tabanına dahil eder  işlemleri
+                return new Result(ResultStatus.Success);
+
+            }
+            return new Result(ResultStatus.Success, "Hata, Kayıt Bulunamadı");
         }
 
-        public Task<IDataResult<InterestedsListDto>> Update(InterestedUpdateDto interestedUpdateDto)
+
+
+
+
+
+
+        public async Task<IDataResult<InterestedDto>> Update(InterestedUpdateDto interestedUpdateDto)
         {
-            throw new NotImplementedException();
+            if (interestedUpdateDto != null)
+            {
+                var interested =_mapper.Map<Interesteds>(interestedUpdateDto);
+                await _unitOfWork.Interesteds.UpdateAsync(interested);
+                await _unitOfWork.SaveAsync();
+                return new DataResult<InterestedDto>(ResultStatus.Success, new InterestedDto { Interesteds = interested });
+
+            }
+            return new DataResult<InterestedDto>(ResultStatus.Error, "Hata , Girdiğiniz bilgileri kontrol ediniz !", null);
         }
     }
 }

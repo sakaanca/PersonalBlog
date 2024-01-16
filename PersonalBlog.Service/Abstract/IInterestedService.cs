@@ -14,8 +14,8 @@ namespace PersonalBlog.Service.Abstract
         Task<IDataResult<InterestedsListDto>> GetAll();
         Task<IDataResult<InterestedsListDto>> GetAllByNonDelete();
         Task<IDataResult<InterestedsListDto>> GetAllByNonDeleteAndActive();
-        Task<IDataResult<InterestedsListDto>> Add(InterestedAddDto interestedAddDto);
-        Task<IDataResult<InterestedsListDto>> Update(InterestedUpdateDto interestedUpdateDto);
+        Task<IDataResult<InterestedDto>> Add(InterestedAddDto interestedAddDto);
+        Task<IDataResult<InterestedDto>> Update(InterestedUpdateDto interestedUpdateDto);
         Task<IResult> Delete(int id);
         Task<IResult> HardDelete(int id);
     }

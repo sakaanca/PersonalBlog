@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Entities.Dtos.Accounts
 {
-    public class AccountListDto
+    public class AccountsListDto
     {
         public IList<SocialMediaAccounts> SocialMediaAccounts { get; set; }
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Entities.Dtos.MessagesDtos
 {
-    public class MessagerUpdateDto
+    public class MessagesUpdateDto
     {
         [Required]
         public int Id { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Entities.Dtos.MessagesDtos
 {
-    public class MessageDto
+    public class MessagesDto
     {
         public Messages Messages { get; set; }
     }

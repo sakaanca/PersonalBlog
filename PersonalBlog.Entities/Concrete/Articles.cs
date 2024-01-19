@@ -1,4 +1,5 @@
-﻿using PersonalBlog.Shared.Entities.Abstract;
+﻿using PersonalBlog.Entities.Dtos.ArticlesDtos;
+using PersonalBlog.Shared.Entities.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,9 @@ namespace PersonalBlog.Entities.Concrete
         public Categories Categories { get; set; }
         public ICollection<Comments> Comments { get; set; }
 
+        public static implicit operator Articles(ArticleAddDto v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
+
 namespace PersonalBlog.MVC
 {
     public class StartUp
@@ -18,7 +19,7 @@ namespace PersonalBlog.MVC
        
         public void ConfigureServices(IServiceCollection services)
         {
-            sevices.AddControllersWithViews();
+            Service.AddControllersWithViews();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

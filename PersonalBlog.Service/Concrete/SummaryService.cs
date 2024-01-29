@@ -29,12 +29,12 @@ namespace PersonalBlog.Service.Concrete
             var summary = await _unitOfWork.Summary.GetAsync(x => x.Id == id);
             if (summary != null)
             {
-                return new DataResult<SummaryDto>(   ResultStatus.Success , new SummaryDto { Summary = summary });
-
+                var summaryDto = _mapper.Map<SummaryDto>(summary);
+                return new DataResult<SummaryDto>(ResultStatus.Success, summaryDto);
             }
-            return new DataResult<SummaryDto>(ResultStatus.Error,  "Hata , Kayıt Bulunamadı !.", null);
-            
+            return new DataResult<SummaryDto>(ResultStatus.Error, "Hata, Kayıt Bulunamadı!", null);
         }
+
 
         public async Task<IDataResult<SummaryDto>> UpdateAsync(SummaryUpdateDto summaryUpdateDto)
         {
@@ -51,9 +51,6 @@ namespace PersonalBlog.Service.Concrete
             
         }
 
-        public Task<IDataResult<SummaryDto>> UpdateAsync(SummaryDto summaryDto)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

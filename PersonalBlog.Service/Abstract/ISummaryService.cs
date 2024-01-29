@@ -11,6 +11,6 @@ namespace PersonalBlog.Service.Abstract
     public interface ISummaryService
     {
         Task<IDataResult<SummaryDto>> GetAsync(int id);
-        Task<IDataResult<SummaryDto>> UpdateAsync(SummaryDto summaryDto);
+        Task<IDataResult<SummaryDto>> UpdateAsync(SummaryUpdateDto summaryUpdateDto);
     }
 }

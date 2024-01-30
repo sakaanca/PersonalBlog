@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 
 namespace PersonalBlog.Service.Concrete
 {
-    public class ExperienceService : IExperiencesService
+    public class ExperiencesService : IExperiencesService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public ExperienceService(IUnitOfWork unitOfWork, IMapper mapper)
+        public ExperiencesService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

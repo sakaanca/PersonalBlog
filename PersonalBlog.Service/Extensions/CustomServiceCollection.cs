@@ -24,8 +24,8 @@ namespace PersonalBlog.Service.Extensions
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ISliderService, SliderService>();
             services.AddScoped<ISkillsService, SkillsService>();
-            services.AddScoped<IExperiencesService, ExperienceService>();
-            services.AddScoped<IMessageService, MessagesService>();
+            services.AddScoped<IExperiencesService, ExperiencesService>();
+            services.AddScoped<IMessageService, MessageService>();
             services.AddScoped<ISiteIdentityService, SiteIdentityService>();
             services.AddScoped<IAboutMeService, AboutMeService>();
             services.AddScoped<IAdminService, AdminService>();

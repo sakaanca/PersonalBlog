@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using PersonalBlog.Data.Abstract;
 using PersonalBlog.Entities.Concrete;
 using PersonalBlog.Entities.Dtos.EducationDtos;
@@ -40,21 +41,22 @@ namespace PersonalBlog.Service.Concrete
 
             }
             return new DataResult<EducationDto>(ResultStatus.Error, "Hata, Girdiğiniz bilgileri kontrol ediniz.", null);
-;        }
+            ;
+        }
 
         public async Task<IResult> Delete(int id)
         {
-            var education = await _unitOfWork.Education.GetAsync(x=>x.Id==id);
+            var education = await _unitOfWork.Education.GetAsync(x => x.Id == id);
             if (education != null)
             {
                 education.IsDelete = true;
-                education.ModifiedTime= DateTime.Now;
+                education.ModifiedTime = DateTime.Now;
                 await _unitOfWork.Education.AddAsync(education);
                 await _unitOfWork.SaveAsync();
-                return new Result(ResultStatus.Success,"Hata , Kayıt bulunamadı !");
+                return new Result(ResultStatus.Success, "Hata , Kayıt bulunamadı !");
 
             }
-            return new DataResult<EducationDto>(ResultStatus.Error, "Hata, Girdiğiniz bilgileri kontrol ediniz.", null);  
+            return new DataResult<EducationDto>(ResultStatus.Error, "Hata, Girdiğiniz bilgileri kontrol ediniz.", null);
         }
 
 
@@ -83,7 +85,7 @@ namespace PersonalBlog.Service.Concrete
         public async Task<IDataResult<EducationListDto>> GetAll()
         {
             var educations = await _unitOfWork.Education.GetAllAsync();
-            if (educations.Count>0)
+            if (educations.Count > 0)
             {
 
                 return new DataResult<EducationListDto>(ResultStatus.Success, new EducationListDto { Educations = educations });
@@ -100,7 +102,7 @@ namespace PersonalBlog.Service.Concrete
 
         public async Task<IDataResult<EducationListDto>> GetAllByNonDelete()
         {
-            var educations = await _unitOfWork.Education.GetAllAsync(x=>x.IsDelete==false);
+            var educations = await _unitOfWork.Education.GetAllAsync(x => x.IsDelete == false);
             if (educations.Count > 0)
             {
 
@@ -138,7 +140,7 @@ namespace PersonalBlog.Service.Concrete
             Education education = await _unitOfWork.Education.GetAsync(X => X.Id == id);
             if (education != null)
             {
-                
+
                 await _unitOfWork.Education.AddAsync(education);
                 await _unitOfWork.SaveAsync();
                 return new Result(ResultStatus.Success);

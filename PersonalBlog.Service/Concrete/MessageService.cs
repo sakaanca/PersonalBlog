@@ -17,11 +17,11 @@ namespace PersonalBlog.Service.Concrete
 {
 
 
-    public class MessagesService : IMessageService
+    public class MessageService : IMessageService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public MessagesService(IUnitOfWork unitOfWork, IMapper mapper)
+        public MessageService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
